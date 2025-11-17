@@ -1,0 +1,10 @@
+import { NextFunction, Router } from "express";
+import { UserController } from "../controllers/user.controller";
+
+const router = Router();
+
+const userController = new UserController();
+
+router.post('/signup', userController.signUp);
+
+export default router;
