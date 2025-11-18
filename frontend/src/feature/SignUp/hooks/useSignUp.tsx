@@ -8,7 +8,6 @@ export const useSignUp = () => {
 
     return useMutation({
         mutationFn: (data: AccountInfo) => {
-            console.log(`${import.meta.env.VITE_API_BASE_URL}/signup`);
             return axios.post(`${import.meta.env.VITE_API_BASE_URL}/signup`, data)
         },
         onSuccess: () => {

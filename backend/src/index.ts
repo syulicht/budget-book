@@ -7,7 +7,6 @@ import cors from 'cors';
 import router from './routes/route';
 
 const app = express();
-console.log(process.env.DATABASE_URL, 1);
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
