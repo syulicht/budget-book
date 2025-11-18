@@ -5,6 +5,7 @@ import type { AccountInfo } from "../../types/types";
 const SignUp = () => {
     const mutaion = useSignUp();
     const handler = (data: AccountInfo) => {
+        console.log(data);
         mutaion.mutate(data);
     }
     return (

@@ -1,12 +1,12 @@
 import { createRootRoute, createRoute } from "@tanstack/react-router";
-import signUp from "../feature/SignUp/signUp";
+import SignUp from "../feature/SignUp/SignUp";
 
 const rootRoute = createRootRoute();
 
 const signUpRoute = createRoute({
     getParentRoute: () => rootRoute,
     path: '/signup',
-    component: signUp
+    component: SignUp
 });
 
 
