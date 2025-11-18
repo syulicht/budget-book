@@ -1,10 +1,9 @@
 import bcrypt from 'bcrypt'
 import { prisma } from '../../prisma/prismaClient';
+import z from 'zod';
+import { createUserSchema } from '../schema/createUserSchema';
 
-interface AccountInfo {
-    email: string,
-    password: string
-}
+type AccountInfo = z.infer<typeof createUserSchema>
 
 export class UserService {
     async createUser (data: AccountInfo) {
