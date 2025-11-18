@@ -9,4 +9,10 @@ export class UserController {
         await userService.createUser(data);
         res.status(201).json({message: 'succeed creating user'});
     }
+
+    async login (req: Request, res: Response, next: NextFunction) {
+        const data = req.body;
+        const token = await userService.login(data);
+        res.status(200).json(token);
+    }
 }

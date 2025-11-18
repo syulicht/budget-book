@@ -8,5 +8,6 @@ const router = Router();
 const userController = new UserController();
 
 router.post('/signup', validateRequest(createUserSchema), userController.signUp);
+router.post('/signin', validateRequest(createUserSchema), userController.login);
 
 export default router;
