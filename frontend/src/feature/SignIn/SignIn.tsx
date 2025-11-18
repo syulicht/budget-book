@@ -1,8 +1,14 @@
-type Props = {}
+import type { AccountInfo } from "../../types/types";
+import AccountForm from "../../ui/AccountForm"
+import { useSignIn } from "./hooks/useSignIn"
 
-const SignIn = (props: Props) => {
+const SignIn = () => {
+  const { mutaion, errMsgs } = useSignIn();
+  const handler = (data: AccountInfo) => {
+    mutaion.mutate(data);
+  }
   return (
-    <div>SignIn</div>
+    <AccountForm handler={handler} errMsgs={errMsgs} />
   )
 }
 
