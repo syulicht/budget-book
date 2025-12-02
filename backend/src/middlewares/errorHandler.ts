@@ -16,6 +16,14 @@ export class AuthorizationError extends Error {
     }
 }
 
+export class AdaptabilityError extends Error {
+    statusCode = 409;
+    constructor(message = 'サーバー内でエラーが発生しました') {
+        super(message);
+        this.statusCode = 409;
+    }
+}
+
 export const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
     console.error(err);
 

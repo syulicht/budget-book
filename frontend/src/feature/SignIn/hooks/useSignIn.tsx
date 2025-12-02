@@ -14,8 +14,8 @@ export const useSignIn = () => {
                         return await axios.post(`${import.meta.env.VITE_API_BASE_URL}/signin`, data);
                     },
                     onSuccess: (res) => {
-                        localStorage.setItem('token', res.data.token);
-                        navigate({ to: '/' });
+                        localStorage.setItem('token', `${res.data}`);
+                        navigate({ to: '/dashboard' });
                     },
                     onError: (e) => {
                         console.error(e.message);

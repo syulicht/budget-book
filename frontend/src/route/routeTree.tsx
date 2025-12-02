@@ -1,7 +1,9 @@
-import { createRootRoute, createRoute } from "@tanstack/react-router";
+import { createRootRoute, createRoute, redirect } from "@tanstack/react-router";
 import SignUp from "../feature/SignUp/SignUp";
 import SignIn from "../feature/SignIn/SignIn";
 import Dashboard from "../feature/Dashboard/Dashboard";
+import { checkAuthentication } from "../utils/checkAuthentication";
+import AuthenticatedLayout from "./_authenticated";
 
 const rootRoute = createRootRoute();
 
@@ -20,9 +22,12 @@ const signInRoute = createRoute({
 const protectedRoute = createRoute({
     getParentRoute: () => rootRoute,
     beforeLoad: async() => {
-        
+        if(!checkAuthentication()){
+            throw redirect({to: '/signin'});
+        }
     },
-    path: '',
+    component: AuthenticatedLayout,
+    path: '/',
 });
 
 const dashboardRoute = createRoute({

@@ -22,6 +22,9 @@ export const useSignUp = () => {
                         console.error(e.message);
                         if(e instanceof AxiosError && e.response?.status === 400) {
                             setErrMsgs(e.response?.data.errors);
+                        } else if(e instanceof AxiosError && e.response?.status === 409) {
+                            console.log(e.response);
+                            setErrMsgs([e.response?.data.message]);
                         } else {
                             setErrMsgs([]);
                         }
