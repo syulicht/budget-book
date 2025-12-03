@@ -4,6 +4,7 @@ import SignIn from "../feature/SignIn/SignIn";
 import Dashboard from "../feature/Dashboard/Dashboard";
 import { checkAuthentication } from "../utils/checkAuthentication";
 import AuthenticatedLayout from "./_authenticated";
+import BudgetList from "../feature/BudgetList/BudgetList";
 
 const rootRoute = createRootRoute();
 
@@ -36,8 +37,15 @@ const dashboardRoute = createRoute({
     component: Dashboard
 })
 
+const budgetListRoute = createRoute({
+    getParentRoute: () => protectedRoute,
+    path: '/budgets',
+    component: BudgetList
+})
+
 protectedRoute.addChildren([
-    dashboardRoute
+    dashboardRoute,
+    budgetListRoute
 ]);
 
 

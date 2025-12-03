@@ -33,37 +33,90 @@ const customTheme = createTheme({
     h3: {
       pc: {
         fontSize: '18px',
-        lineHeight: '100%',
+        lineHeight: 1,
       },
       sp: {
         fontSize: '14px',
-        lineHeight: '100%',
+        lineHeight: 1,
       }
     },
     p: {
       pc: {
         fontSize: '14px',
-        lineHeight: '100%',
+        lineHeight: 1,
       },
       sp: {
         fontSize: '12px',
-        lineHeight: '100%',
+        lineHeight: 1,
       }
     },
     span: {
       pc: {
         fontSize: '12px',
-        lineHeight: '100%',
+        lineHeight: 1,
       },
       sp: {
         fontSize: '10px',
-        lineHeight: '100%',
+        lineHeight: 1,
       }
     },
   },
   shape: {
     pc: '6px',
     sp: '4px'
+  },
+  components: {
+    MuiSelect: {
+      styleOverrides: {
+        root: {
+          background: '#333333',
+          display: 'flex',
+          gap: '16px',
+          border: 'solid 2px',
+          padding: 8,
+          paddingLeft: 16,
+          borderColor: '#404040',
+          borderRadius: '8px',
+          '&.Mui-focused': {
+            borderColor: '#404040',
+            boxShadow: 'none'
+          },
+          '&.Mui-focused .MuiOutlinedInput-notchedOutline': {  
+            borderColor: 'inherit',  
+            borderWidth: 1,  
+          },  
+        },
+        select: {
+          padding: 0,
+          paddingRight: 0,
+          width: 'fit-content',
+          fontSize: '14px',
+          minHeight: '14px',
+          lineHeight: '14px'
+        },
+        icon: {
+          fontSize: '16px'
+        }
+      }
+    },
+    MuiMenu: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: '#333333',
+          color: '#DDDDDD',
+          fontSize: '14px'
+        }
+      }
+    },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          backgroundColor: '#333333',
+          color: '#DDDDDD',
+          fontSize: '14px'
+        }
+      }
+    }
   }
 });
 

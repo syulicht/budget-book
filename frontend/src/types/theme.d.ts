@@ -29,22 +29,23 @@ declare module '@mui/material/styles' {
         spacing: (num: number) => string,
         typography: {
             h3: {
-                sp: { fontSize: string, lineHeight: string },
-                pc: { fontSize: string, lineHeight: string }    
+                sp: { fontSize: string, lineHeight: number },
+                pc: { fontSize: string, lineHeight: number }    
             },
             p: {
-                sp: { fontSize: string, lineHeight: string },
-                pc: { fontSize: string, lineHeight: string }    
+                sp: { fontSize: string, lineHeight: number },
+                pc: { fontSize: string, lineHeight: number }    
             },
             span: {
-                sp: { fontSize: string, lineHeight: string },
-                pc: { fontSize: string, lineHeight: string }    
+                sp: { fontSize: string, lineHeight: number },
+                pc: { fontSize: string, lineHeight: number }    
             }
         },
         shape: {
             sp: string,
             pc: string
-        }
+        },
+        components: object
     }
 
     interface ThemeOptions {
@@ -54,16 +55,16 @@ declare module '@mui/material/styles' {
         typography: {
             fontFamily: string,
             h3: {
-                sp: { fontSize: string, lineHeight: string },
-                pc: { fontSize: string, lineHeight: string }    
+                sp: { fontSize: string, lineHeight: number },
+                pc: { fontSize: string, lineHeight: number }    
             },
             p: {
-                sp: { fontSize: string, lineHeight: string },
-                pc: { fontSize: string, lineHeight: string }    
+                sp: { fontSize: string, lineHeight: number },
+                pc: { fontSize: string, lineHeight: number }    
             },
             span: {
-                sp: { fontSize: string, lineHeight: string },
-                pc: { fontSize: string, lineHeight: string }    
+                sp: { fontSize: string, lineHeight: number },
+                pc: { fontSize: string, lineHeight: number }    
             }
         },
         shape: {
