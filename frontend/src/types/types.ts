@@ -7,3 +7,8 @@ export interface UserInfo {
     id: number,
     name: string,
 }
+
+export interface Master {
+    id: number,
+    name: string,
+}

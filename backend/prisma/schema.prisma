@@ -22,6 +22,7 @@ model User {
 
   Budget       Budget[]
   Subscription Subscription[]
+  userTypes UserType[]
 }
 
 model Budget {
@@ -42,7 +43,17 @@ model Budget {
 model Type {
   id     Int      @id @default(autoincrement())
   name   String
+  userId Int 
+  user UserType[]
   budget Budget[]
+}
+
+model UserType {
+  id Int @id @default(autoincrement())
+  userId Int
+  user User @relation(fields: [userId], references: [id])
+  typeId Int
+  type Type @relation(fields: [typeId], references: [id])
 }
 
 model Icon {

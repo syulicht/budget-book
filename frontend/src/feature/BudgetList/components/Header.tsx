@@ -1,10 +1,16 @@
 import { Box, Typography, useTheme } from "@mui/material"
 import CustomDropDown from "../../../ui/CustomDropDown";
-import { useSetExInTypes } from "../hooks/useSetExInTypes";
+import { useManageBudget } from "../hooks/useManageBudget";
+import Loading from "../../../ui/Loading";
+
+const exInTypesNames = [{value: -1, name: '収入・支出'}, {value: 0, name: '収入'}, {value: 1, name: '支出'}]
 
 const Header = () => {
-  const {value: value, setValue: setValue, exInTypes: exInTypes} = useSetExInTypes();
+  const {masters, masterIsLoading, exInType, setExInType, setMaster, master} = useManageBudget();
   const theme = useTheme();
+
+  if(masterIsLoading) return <Loading />;
+
   return (
     <Box sx={{
         width: '100%',
@@ -16,10 +22,11 @@ const Header = () => {
         <Typography component={'h3'}>収支管理</Typography>
         <Box sx={{
           display: 'flex',
-          flexDirection: 'column',
+          flexDirection: 'row',
           gap: theme.spacing(4)
         }}>
-          <CustomDropDown value={value} setValue={setValue} menuItems={exInTypes} />
+          <CustomDropDown value={exInType} setValue={setExInType} menuItems={exInTypesNames} />
+          <CustomDropDown value={master} setValue={setMaster} menuItems={masters} />
         </Box>
     </Box>
   )
