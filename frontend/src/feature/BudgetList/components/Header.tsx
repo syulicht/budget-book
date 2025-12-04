@@ -1,15 +1,21 @@
 import { Box, Typography, useTheme } from "@mui/material"
 import CustomDropDown from "../../../ui/CustomDropDown";
-import { useManageBudget } from "../hooks/useManageBudget";
 import Loading from "../../../ui/Loading";
 
-const exInTypesNames = [{value: -1, name: '収入・支出'}, {value: 0, name: '収入'}, {value: 1, name: '支出'}]
+interface Props {
+  exInTypesNames: {value: number, name: string}[],
+  masters: {value: number, name: string}[], 
+  masterIsLoading: boolean, 
+  exInType: number, 
+  setExInType:  React.Dispatch<React.SetStateAction<number>>, 
+  setMaster:  React.Dispatch<React.SetStateAction<number>>, 
+  master: number
+}
 
-const Header = () => {
-  const {masters, masterIsLoading, exInType, setExInType, setMaster, master} = useManageBudget();
+const Header = (props: Props) => {
   const theme = useTheme();
 
-  if(masterIsLoading) return <Loading />;
+  if(props.masterIsLoading) return <Loading />;
 
   return (
     <Box sx={{
@@ -25,8 +31,8 @@ const Header = () => {
           flexDirection: 'row',
           gap: theme.spacing(4)
         }}>
-          <CustomDropDown value={exInType} setValue={setExInType} menuItems={exInTypesNames} />
-          <CustomDropDown value={master} setValue={setMaster} menuItems={masters} />
+          <CustomDropDown value={props.exInType} setValue={props.setExInType} menuItems={props.exInTypesNames} />
+          <CustomDropDown value={props.master} setValue={props.setMaster} menuItems={props.masters} />
         </Box>
     </Box>
   )
