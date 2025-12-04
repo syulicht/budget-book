@@ -16,8 +16,7 @@ router.post('/signup', validateRequest(createUserSchema), userController.signUp)
 router.post('/signin', validateRequest(createUserSchema), userController.login);
 
 router.get('/getUser', authenticate, userController.getUserInfo);
-router.get('/getBudgetData/:start/:end', authenticate, budgetController.getCurrentMonthBudgetData);
+router.get('/getBudgetData/:startParam/:endParam/:ExOrInParam/:typeIdParam', authenticate, budgetController.getCurrentMonthBudgetData);
 
 router.get('/getAllMasters', authenticate, masterController.getAllMasters);
-
 export default router;

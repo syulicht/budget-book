@@ -24,7 +24,7 @@ const BudgetList = () => {
         setMaster={setMaster}
         master={master}
       />
-      <List />
+      <List exInType={exInType} master={master} />
     </Box>
   )
 }

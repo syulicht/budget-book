@@ -1,8 +1,18 @@
 import { CheckBox, Delete, Edit } from '@mui/icons-material';
 import {Box, List as MuiList, Typography, useTheme} from '@mui/material';
+import Loading from '../../../ui/Loading';
+import { useFetchBudgetData } from '../hooks/useFetchBudgetData';
 
-const List = () => {
+interface Props {
+    exInType: number,
+    master: number
+}
+const List = (props: Props) => {
     const theme = useTheme();
+    const { data, isLoading } = useFetchBudgetData(props.exInType, props.master);
+    if(isLoading) return <Loading />;
+
+    console.log(data);
     return (
     <MuiList
         subheader={
@@ -36,7 +46,6 @@ const List = () => {
             </Box>
         }
     >
-
     </MuiList>
     )
 }
