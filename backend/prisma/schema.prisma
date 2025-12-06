@@ -6,7 +6,7 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "./generated/prisma"
+  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -22,13 +22,14 @@ model User {
 
   Budget       Budget[]
   Subscription Subscription[]
-  userTypes UserType[]
+  userTypes    UserType[]
 }
 
 model Budget {
   id             Int          @id @default(autoincrement())
   date           DateTime
   detail         String
+  money          Int
   ExOrIn         Int
   user           User         @relation(fields: [userId], references: [id])
   userId         Int
@@ -41,19 +42,20 @@ model Budget {
 }
 
 model Type {
-  id     Int      @id @default(autoincrement())
+  id     Int        @id @default(autoincrement())
   name   String
-  userId Int 
-  user UserType[]
+  userId Int
+  exOrIn Int
+  user   UserType[]
   budget Budget[]
 }
 
 model UserType {
-  id Int @id @default(autoincrement())
+  id     Int  @id @default(autoincrement())
   userId Int
-  user User @relation(fields: [userId], references: [id])
+  user   User @relation(fields: [userId], references: [id])
   typeId Int
-  type Type @relation(fields: [typeId], references: [id])
+  type   Type @relation(fields: [typeId], references: [id])
 }
 
 model Icon {

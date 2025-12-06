@@ -22,7 +22,7 @@ export class UserService {
         const isValid = await bcrypt.compare(data.password, user.password);
         if(!isValid) throw new AuthorizationError('ログインに失敗しました');
 
-        const token = jwt.sign({id: user.id, name: user.name}, `${process.env.JWT_TOKEN_SECRET_KEY}`, {expiresIn: '1h'});
+        const token = jwt.sign({id: user.id, name: user.name}, `${process.env.JWT_TOKEN_SECRET_KEY}`, {expiresIn: '1000h'});
         return token;
     }
 

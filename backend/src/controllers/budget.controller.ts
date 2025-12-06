@@ -15,7 +15,6 @@ export class BudgetController {
             const end = new Date(endParam) ?? new Date(nowDate.getFullYear(), nowDate.getMonth()+1, 0);
             const type = Number(typeIdParam) ?? 0;
             const ExOrIn = Number(ExOrInParam) ?? 0;
-            console.log(start, end, type, ExOrInParam, typeIdParam);
             const user = await userService.getUserInfo(req.userId);
             if(!user) throw new NotFoundError('ユーザーが見つかりません');
             const data = await budgetService.getBudgetList(start, end, type, ExOrIn, user.id);

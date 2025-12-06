@@ -12,3 +12,12 @@ export interface Master {
     id: number,
     name: string,
 }
+
+export interface Budget {
+    id: number,
+    money: number,
+    date: string,
+    detail: string,
+    master: Master,
+    exOrIn: number
+}
